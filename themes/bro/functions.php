@@ -116,6 +116,10 @@ add_action( 'widgets_init', 'bro_widgets_init' );
 function bro_scripts() {
 	wp_enqueue_style( 'bro-style', get_stylesheet_uri() );
 
+//	Google fonts added
+	wp_enqueue_style( 'bro-style-google-fonts', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,700|Merriweather:400,400italic,700,700italic');
+
+
 	wp_enqueue_script( 'bro-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'bro-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
