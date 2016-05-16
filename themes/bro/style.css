@@ -773,6 +773,7 @@ a:active {
 --------------------------------------------------------------*/
 .site-header {
 	background-color: #053964;
+	background-size: cover;
 }
 
 .site-branding{
