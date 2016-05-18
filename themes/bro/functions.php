@@ -120,8 +120,15 @@ function bro_scripts() {
 //	Google fonts added
 	wp_enqueue_style( 'bro-style-google-fonts', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,700|Merriweather:400,400italic,700,700italic');
 
+//	Font Awesome icons (http://fontawesome.io/)
+	wp_enqueue_style('bro-fontawesome', "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 
-	wp_enqueue_script( 'bro-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'bro-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+	wp_localize_script( 'bro-navigation', 'screenReaderText', array(
+		'expand'   => __( 'expand child menu', 'bro' ),
+		'collapse' => __( 'collapse child menu', 'bro' ),
+	) );
 
 	wp_enqueue_script( 'bro-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

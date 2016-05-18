@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-( function() {
+( function($) {
 	var container, button, menu, links, subMenus, i, len;
 
 	container = document.getElementById( 'site-navigation' );
@@ -64,12 +64,12 @@
 		var self = this;
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+		while (-1 === self.className.indexOf('nav-menu')) {
 
 			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
+			if ('li' === self.tagName.toLowerCase()) {
+				if (-1 !== self.className.indexOf('focus')) {
+					self.className = self.className.replace(' focus', '');
 				} else {
 					self.className += ' focus';
 				}
@@ -78,4 +78,40 @@
 			self = self.parentElement;
 		}
 	}
-} )();
+	function initMainNavigation( container ) {
+
+		// Add dropdown toggle that displays child menu items.
+		var dropdownToggle = $( '<button />', {
+			'class': 'dropdown-toggle',
+			'aria-expanded': false
+		} ).append( $( '<span />', {
+			'class': 'screen-reader-text',
+			text: screenReaderText.expand
+		} ) );
+
+		container.find( '.menu-item-has-children > a' ).after( dropdownToggle );
+
+		// Toggle buttons and submenu items with active children menu items.
+		container.find( '.current-menu-ancestor > button' ).addClass( 'toggled-on' );
+		container.find( '.current-menu-ancestor > .sub-menu' ).addClass( 'toggled-on' );
+
+		// Add menu items with submenus to aria-haspopup="true".
+		container.find( '.menu-item-has-children' ).attr( 'aria-haspopup', 'true' );
+
+		container.find( '.dropdown-toggle' ).click( function( e ) {
+			var _this            = $( this ),
+				screenReaderSpan = _this.find( '.screen-reader-text' );
+
+			e.preventDefault();
+			_this.toggleClass( 'toggled-on' );
+			_this.next( '.children, .sub-menu' ).toggleClass( 'toggled-on' );
+
+			// jscs:disable
+			_this.attr( 'aria-expanded', _this.attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+			// jscs:enable
+			screenReaderSpan.text( screenReaderSpan.text() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
+		} );
+	}
+	initMainNavigation( $( '.main-navigation' ) );
+
+} )(jQuery);
