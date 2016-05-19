@@ -270,7 +270,7 @@ select,
 textarea {
 	color: #000;
 	font-family: 'Merriweather', serif;
-	font-size: 16px;
+	font-size: 17px;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -325,7 +325,7 @@ address {
 pre {
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
+	font-size: 16px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
 	margin-bottom: 1.6em;
@@ -339,7 +339,7 @@ kbd,
 tt,
 var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 15px;
+	font-size: 16px;
 	font-size: 0.9375rem;
 }
 
@@ -590,7 +590,7 @@ a:active {
 	display:inline-block;
 	color:#17568d;
 	font-family:'Merriweather', serif;
-	font-size:15px;
+	font-size:16px;
 	font-weight:normal;
 	font-style:normal;
 	height:40px;
