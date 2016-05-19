@@ -571,6 +571,40 @@ a:active {
 	outline: 0;
 }
 
+.focusButton {
+	background-color:#ff9933;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	text-indent:0px;
+	border:2px solid #da7115;
+	display:inline-block;
+	color:#17568d;
+	font-family:'Merriweather', serif;
+	font-size:15px;
+	font-weight:normal;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:160px;
+	text-decoration:none;
+	text-align:center;
+}.focusButton:hover {
+	background-color:#17568d;
+}.focusButton:active {
+	position:relative;
+	top:1px;
+}
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -1073,6 +1107,13 @@ a:active {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+#calltoaction {
+	text-align:center;
+}
+#calltoaction a {
+	margin-right: 20px;
 }
 
 /*--------------------------------------------------------------
