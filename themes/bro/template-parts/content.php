@@ -26,6 +26,13 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
+	<?php
+	if ( has_post_thumbnail()) { ?>
+	<figure class="featured-image">
+	<?php the_post_thumbnail(); ?>
+	</figure>
+	<?php }
+	?>
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
